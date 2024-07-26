@@ -1,4 +1,4 @@
-@extends('fe/master-fe')
+@extends('fe.master-fe')
 @section('title', 'Jakartaweb')
 
 @section('content')
@@ -7,11 +7,10 @@
       <div class="row">
         <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
           <div class="section-title">
-            <h1 class="display-4 text-white fw-semibold">Get in Touch</h1>
+            <h1 class="display-4 text-white fw-semibold">{{ $contact->title }}</h1>
             <div class="line bg-black"></div>
             <p class="text-white">
-              We love to craft digital experiences for brands rather than crap and more lorem ipsums
-              and do crazy skills
+              {{ $contact->description }}
             </p>
           </div>
         </div>
@@ -40,11 +39,11 @@
               ></textarea>
             </div>
             <div class="form-group col-lg-12 d-grid">
-              <button class="btn btn-brand">Send Message</button>
+              <button class="btn btn-brand">{{ $contact->button_text }}</button>
             </div>
           </form>
         </div>
       </div>
     </div>
   </section>
-@endsection('content')
+@endsection
