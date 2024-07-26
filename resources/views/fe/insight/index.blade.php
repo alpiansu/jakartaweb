@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
                 <div class="section-title">
-                    <h1 class="display-4 fw-semibold">Insights</h1>
+                    <h1 class="display-4 fw-semibold">{{ $insight_text->title }}</h1>
                     <div class="line"></div>
                     <p>
-                        Our Insight page presents in-depth analysis of key trends and strategic opportunities that can help organizations achieve competitive advantage in a dynamic market landscape. Through comprehensive research and data review, we identify critical insights that can drive innovation, improve efficiency, and foster sustainable growth. The insights shared aim to empower business leaders to make smarter decisions, optimize their strategies, and build lasting competitive edge. By providing valuable strategic foresight, our Insight page aspires to be a trusted reference for navigating the challenges and possibilities of the future.
+                        {{ $insight_text->content }}
                     </p>
                 </div>
             </div>
