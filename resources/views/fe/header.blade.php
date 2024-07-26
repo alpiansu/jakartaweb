@@ -37,7 +37,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="/contact" class="nav-link">Our Work</a>
+            <a href="/work" class="nav-link">Our Work</a>
           </li>
           <li class="nav-item">
             <a href="/insight" class="nav-link">Insight</a>
