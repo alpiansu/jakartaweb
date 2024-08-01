@@ -7,12 +7,9 @@
         <div class="row">
             <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
                 <div class="section-title">
-                    <h1 class="display-4 fw-semibold">UI/UX Designing</h1>
+                    <h1 class="display-4 fw-semibold">{{ $subservice->heading }}</h1>
                     <div class="line"></div>
-                    <p>
-                        We love to craft digital experiences for brands rather than crap and more lorem ipsums
-                        and do crazy skills
-                    </p>
+                    <p>{{ $subservice->sub_heading }}</p>
                 </div>
             </div>
         </div>

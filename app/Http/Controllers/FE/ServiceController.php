@@ -16,7 +16,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $subservice = SubService::where('id_sub_services', 1)->get();
+        $subservice = SubService::where('id', 1)->first();
         $services = Service::where('id_sub_services', 1)->get();
         $counters = Counter::where('id_sub_services', 1)->get();
 
