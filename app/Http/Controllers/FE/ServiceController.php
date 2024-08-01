@@ -5,6 +5,10 @@ namespace App\Http\Controllers\FE;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Service;
+use App\Models\Counter;
+use App\Models\SubService;
+
 class ServiceController extends Controller
 {
     /**
@@ -12,7 +16,11 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view("fe.services.service.index");
+        $subservice = SubService::where('id_sub_services', 1)->get();
+        $services = Service::where('id_sub_services', 1)->get();
+        $counters = Counter::where('id_sub_services', 1)->get();
+
+        return view("fe.services.index", compact('services', 'counters', 'subservice'));
     }
 
     /**
