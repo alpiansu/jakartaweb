@@ -327,7 +327,7 @@ return [
                 ],
                 [
                     'text' => 'Features',
-                    'url' => 'admin/home/features',
+                    'url' => 'admin/home/feature',
                     'icon' => 'fas fa-fw fa-list-ul',
                 ],
             ],
