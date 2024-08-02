@@ -39,24 +39,28 @@
         </div>
         <div class="row justify-content-center mb-5">
             <div class="col-md-4" data-aos="fade-down" data-aos-delay="150">
-                <select class="form-control">
-                    <option>All Projects</option>
-                    <!-- Options for project types -->
+                <select id="project-type" class="form-control">
+                    <option value="">All Projects</option>
+                    @foreach($projectTypes as $projectType)
+                        <option value="{{ $projectType->project_type }}">{{ $projectType->project_type }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-md-4" data-aos="fade-down" data-aos-delay="150">
-                <select class="form-control">
-                    <option>All Sectors</option>
-                    <!-- Options for sectors -->
+                <select id="sector" class="form-control">
+                    <option value="">All Sectors</option>
+                    @foreach($sectors as $sector)
+                        <option value="{{ $sector->sector }}">{{ $sector->sector }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
-        <div class="row g-4">
+        <div class="row g-4" id="projects-list">
             @foreach($projects as $project)
                 <div class="col-md-4 col-sm-6 col-xs-12" data-aos="fade-down" data-aos-delay="150">
                     <div class="project-item">
                         <div class="project-image">
-                            <img src="{{ asset('storage/' . $project->image_path) }}" alt="{{ $project->title }}" class="img-fluid" />
+                            <img src="{{ asset('assets/img/work/'.$project->image_path) }}" alt="{{ $project->title }}" class="img-fluid" />
                         </div>
                         <h5 class="mt-3">{{ $project->title }}</h5>
                         <p class="text-muted">{{ $project->description }}</p>
@@ -67,4 +71,42 @@
         </div>
     </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#project-type, #sector').on('change', function() {
+            let projectType = $('#project-type').val();
+            let sector = $('#sector').val();
+            
+            $.ajax({
+                url: '{{ route('work.filter') }}',
+                method: 'GET',
+                data: {
+                    project_type: projectType,
+                    sector: sector
+                },
+                success: function(response) {
+                    let projectsList = $('#projects-list');
+                    projectsList.empty();
+
+                    response.forEach(project => {
+                        projectsList.append(`
+                            <div class="col-md-4 col-sm-6 col-xs-12" data-aos="fade-down" data-aos-delay="150">
+                                <div class="project-item">
+                                    <div class="project-image">
+                                        <img src="assets/img/work/${project.image_path}" alt="${project.title}" class="img-fluid" />
+                                    </div>
+                                    <h5 class="mt-3">${project.title}</h5>
+                                    <p class="text-muted">${project.description}</p>
+                                    <a href="${project.link}" class="btn btn-outline-primary">Open</a>
+                                </div>
+                            </div>
+                        `);
+                    });
+                }
+            });
+        });
+    });
+</script>
 @endsection

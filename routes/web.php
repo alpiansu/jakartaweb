@@ -22,6 +22,7 @@ Route::get("/", [HomeController::class, "index"])->name('fe.home');
 Route::get("/contact", [ContactController::class, "index"])->name('fe.contact');
 Route::get("/insight", [InsightController::class, "index"])->name('fe.insight');
 Route::get("/work", [WorkController::class, "index"])->name('fe.work');
+Route::get('/work/filter', [WorkController::class, 'filterProjects'])->name('work.filter');
 Route::get("/service", [ServiceController::class, "index"])->name('fe.service');
 Route::get("/service2", [Service2Controller::class, "index"])->name('fe.service2');
 
@@ -33,6 +34,7 @@ use App\Http\Controllers\Admin\HomeGalleryController;
 use App\Http\Controllers\Admin\HomeFeatureController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\Admin\AdminService2Controller;
+use App\Http\Controllers\Admin\AdminWorkController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -80,4 +82,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/service2/counter', [AdminService2Controller::class, 'storeCounter'])->name('admin.service2.counter.store');
     Route::put('/admin/service2/counter/{id}', [AdminService2Controller::class, 'updateCounter'])->name('admin.service2.counter.update');
     Route::delete('/admin/service2/counter/{id}', [AdminService2Controller::class, 'destroyCounter'])->name('admin.service2.counter.destroy');
+
+    Route::get('/admin/work', [AdminWorkController::class, 'index'])->name('admin.projects.index');
+    Route::get('/admin/work/create', [AdminWorkController::class, 'create'])->name('admin.projects.create');
+    Route::post('/admin/work', [AdminWorkController::class, 'store'])->name('admin.projects.store');
+    Route::get('/admin/work/{id}/edit', [AdminWorkController::class, 'edit'])->name('admin.projects.edit');
+    Route::put('/admin/work/{id}', [AdminWorkController::class, 'update'])->name('admin.projects.update');
+    Route::delete('/admin/work/{id}', [AdminWorkController::class, 'destroy'])->name('admin.projects.destroy');
 });
