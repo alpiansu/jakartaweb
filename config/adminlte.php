@@ -308,113 +308,60 @@ return [
         // Sidebar items:
         [
             'text' => 'Home',
-            'icon' => 'fas fa-home',
+            'icon' => 'fas fa-fw fa-home',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Carousel',
+                    'url' => 'admin/home/carousel',
+                    'icon' => 'fas fa-fw fa-images',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'About',
+                    'url' => 'admin/home/about',
+                    'icon' => 'fas fa-fw fa-info-circle',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Gallery',
+                    'url' => 'admin/home/gallery',
+                    'icon' => 'fas fa-fw fa-photo-video',
+                ],
+                [
+                    'text' => 'Features',
+                    'url' => 'admin/home/features',
+                    'icon' => 'fas fa-fw fa-list-ul',
                 ],
             ],
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'text' => 'Services',
+            'icon' => 'fas fa-fw fa-cogs',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Service 1',
+                    'url' => 'admin/services/service1',
+                    'icon' => 'fas fa-fw fa-wrench',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Service 2',
+                    'url' => 'admin/services/service2',
+                    'icon' => 'fas fa-fw fa-tools',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
+            'text' => 'Our Work',
+            'url' => 'admin/work',
+            'icon' => 'fas fa-fw fa-briefcase',
         ],
         [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
+            'text' => 'Insight',
+            'url' => 'admin/insight',
+            'icon' => 'fas fa-fw fa-lightbulb',
         ],
         [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+            'text' => 'Contact',
+            'url' => 'admin/contact',
+            'icon' => 'fas fa-fw fa-envelope',
         ],
     ],
 
