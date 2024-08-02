@@ -35,6 +35,7 @@ use App\Http\Controllers\Admin\HomeFeatureController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\Admin\AdminService2Controller;
 use App\Http\Controllers\Admin\AdminWorkController;
+use App\Http\Controllers\Admin\AdminInsightController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -89,4 +90,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/work/{id}/edit', [AdminWorkController::class, 'edit'])->name('admin.projects.edit');
     Route::put('/admin/work/{id}', [AdminWorkController::class, 'update'])->name('admin.projects.update');
     Route::delete('/admin/work/{id}', [AdminWorkController::class, 'destroy'])->name('admin.projects.destroy');
+
+    Route::get('/admin/insight', [AdminInsightController::class, 'index'])->name('admin.insight.index');
+    Route::post('/admin/insight', [AdminInsightController::class, 'store'])->name('admin.insight.store');
+    Route::put('/admin/insight/{id}', [AdminInsightController::class, 'update'])->name('admin.insight.update');
+    Route::delete('/admin/insight/{id}', [AdminInsightController::class, 'destroy'])->name('admin.insight.destroy');
 });

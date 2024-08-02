@@ -20,7 +20,7 @@
                 <div class="col-md-4 pt-4" data-aos="fade-down" data-aos-delay="150">
                     <div class="blog-post image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="{{ asset('assets/img/' . $blog->image_path) }}" alt="{{ $blog->title }}" />
+                            <img src="{{ asset('assets/img/insights/' . $blog->image_path) }}" alt="{{ $blog->title }}" />
                         </div>
                         <h5 class="mt-4">{{ $blog->title }}</h5>
                         <p class="mb-0">
