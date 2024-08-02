@@ -16,5 +16,6 @@ class Service extends Model
         'title',
         'description',
         'icon_class',
+        'id_sub_services',
     ];
 }

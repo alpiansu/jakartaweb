@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\HomeCarouselController;
 use App\Http\Controllers\Admin\HomeAboutController;
 use App\Http\Controllers\Admin\HomeGalleryController;
 use App\Http\Controllers\Admin\HomeFeatureController;
+use App\Http\Controllers\Admin\AdminServiceController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -60,4 +61,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/admin/home/feature/{id}', [HomeFeatureController::class, 'update'])->name('admin.home.feature.update');
     Route::delete('/admin/home/feature/{id}', [HomeFeatureController::class, 'destroy'])->name('admin.home.feature.destroy');
     Route::put('/admin/home/feature-text', [HomeFeatureController::class, 'updateFeatureText'])->name('admin.home.feature.text.update');
+
+    Route::get('/admin/service', [AdminServiceController::class, 'index'])->name('admin.service.index');
+    Route::post('/admin/service/subservice/update', [AdminServiceController::class, 'updateSubService'])->name('admin.service.subservice.update');
+    Route::post('/admin/service', [AdminServiceController::class, 'storeService'])->name('admin.service.store');
+    Route::put('/admin/service/{id}', [AdminServiceController::class, 'updateService'])->name('admin.service.update');
+    Route::delete('/admin/service/{id}', [AdminServiceController::class, 'destroyService'])->name('admin.service.destroy');
+    Route::post('/admin/service/counter', [AdminServiceController::class, 'storeCounter'])->name('admin.service.counter.store');
+    Route::put('/admin/service/counter/{id}', [AdminServiceController::class, 'updateCounter'])->name('admin.service.counter.update');
+    Route::delete('/admin/service/counter/{id}', [AdminServiceController::class, 'destroyCounter'])->name('admin.service.counter.destroy');
 });

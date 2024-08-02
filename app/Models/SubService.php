@@ -14,5 +14,6 @@ class SubService extends Model
         'menu_name',
         'heading',
         'sub_heading',
+        'id_sub_services',
     ];
 }

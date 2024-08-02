@@ -338,12 +338,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Service 1',
-                    'url' => 'admin/services/service1',
+                    'url' => 'admin/service',
                     'icon' => 'fas fa-fw fa-wrench',
                 ],
                 [
                     'text' => 'Service 2',
-                    'url' => 'admin/services/service2',
+                    'url' => 'admin/service2',
                     'icon' => 'fas fa-fw fa-tools',
                 ],
             ],

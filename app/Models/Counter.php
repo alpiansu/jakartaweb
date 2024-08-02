@@ -13,8 +13,8 @@ class Counter extends Model
 
     // Kolom-kolom yang boleh diisi
     protected $fillable = [
-        'title',
         'value',
         'subtitle',
+        'id_sub_services',
     ];
 }

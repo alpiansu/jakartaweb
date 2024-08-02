@@ -8,7 +8,6 @@
 
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Kelola Fitur</h1>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
