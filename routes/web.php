@@ -29,6 +29,7 @@ Auth::routes();
 
 use App\Http\Controllers\Admin\HomeCarouselController;
 use App\Http\Controllers\Admin\HomeAboutController;
+use App\Http\Controllers\Admin\HomeGalleryController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -47,4 +48,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/admin/home/about/feature/{id}', [HomeAboutController::class, 'updateFeature'])->name('admin.home.about.feature.update');
     Route::post('/admin/home/about/{about_us_id}/feature', [HomeAboutController::class, 'addFeature'])->name('admin.home.about.feature.store');
     Route::delete('/admin/home/about/feature/{id}', [HomeAboutController::class, 'destroyFeature'])->name('admin.home.about.feature.destroy');
+
+    Route::get('/admin/home/gallery', [HomeGalleryController::class, 'index'])->name('admin.home.gallery');
+    Route::post('/admin/home/gallery', [HomeGalleryController::class, 'store'])->name('admin.home.gallery.store');
+    Route::put('/admin/home/gallery/{id}', [HomeGalleryController::class, 'update'])->name('admin.home.gallery.update');
+    Route::delete('/admin/home/gallery/{id}', [HomeGalleryController::class, 'destroy'])->name('admin.home.gallery.destroy');
 });
