@@ -55,7 +55,7 @@
                                     <form action="{{ route('admin.insight.destroy', $blog->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
