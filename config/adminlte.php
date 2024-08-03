@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -362,6 +362,11 @@ return [
             'text' => 'Contact',
             'url' => 'admin/contact',
             'icon' => 'fas fa-fw fa-envelope',
+        ],
+        [
+            'text' => 'Main Config',
+            'icon' => 'fas fa-fw fa-cogs',
+            'url' => 'admin/config',
         ],
     ],
 

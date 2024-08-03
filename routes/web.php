@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\AdminService2Controller;
 use App\Http\Controllers\Admin\AdminWorkController;
 use App\Http\Controllers\Admin\AdminInsightController;
 use App\Http\Controllers\Admin\AdminContactController;
+use App\Http\Controllers\Admin\AdminConfigController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -103,4 +104,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contacts.index');
     Route::delete('/admin/contact/{id}', [AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
     Route::put('/admin/contact/{id}', [AdminContactController::class, 'update'])->name('admin.contacts.update');
+
+    Route::get('/admin/config', [AdminConfigController::class, 'index'])->name('admin.config.index');
+    Route::post('/admin/config', [AdminConfigController::class, 'store'])->name('admin.config.store');
+    Route::post('/admin/config/social-media', [AdminConfigController::class, 'storeSocialMedia'])->name('admin.config.storeSocialMedia');
+    Route::put('/admin/config/social-media/{id}', [AdminConfigController::class, 'updateSocialMedia'])->name('admin.config.updateSocialMedia');
+    Route::delete('/admin/config/{id}', [AdminConfigController::class, 'destroy'])->name('admin.config.destroy');
 });
