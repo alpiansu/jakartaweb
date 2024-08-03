@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\PageContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +13,8 @@ class AdminInsightController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('admin.insight.index', compact('blogs'));
+        $insight_text = PageContent::where('page_id', '4')->first();
+        return view('admin.insight.index', compact('blogs', 'insight_text'));
     }
 
     public function store(Request $request)
@@ -72,6 +74,23 @@ class AdminInsightController extends Controller
             return redirect()->route('admin.insight.index')->with('success', 'Insight updated successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Failed to update insight: ' . $e->getMessage()]);
+        }
+    }
+
+    public function updateHeading(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        try {
+            $pageContent = PageContent::where('page_id', '4')->first();
+            $pageContent->update($request->only(['title', 'content']));
+
+            return redirect()->route('admin.insight.index')->with('success', 'Text heading updated successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Failed to update SubService: ' . $e->getMessage()]);
         }
     }
 

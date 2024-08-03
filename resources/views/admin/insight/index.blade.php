@@ -20,7 +20,28 @@
             </div>
         @endif
 
-        <div class="card">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Heading Text</h6>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('admin.insight.updateHeading') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="heading">Heading</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ $insight_text->title }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sub_heading">Sub Heading</label>
+                        <input type="text" class="form-control" id="content" name="content" value="{{ $insight_text->content }}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow">
             <div class="card-header">
                 <h3 class="card-title">Insight Management</h3>
                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#addInsightModal">Add New Insight</button>

@@ -96,6 +96,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/insight', [AdminInsightController::class, 'index'])->name('admin.insight.index');
     Route::post('/admin/insight', [AdminInsightController::class, 'store'])->name('admin.insight.store');
     Route::put('/admin/insight/{id}', [AdminInsightController::class, 'update'])->name('admin.insight.update');
+    Route::put('/admin/insight', [AdminInsightController::class, 'updateHeading'])->name('admin.insight.updateHeading');
     Route::delete('/admin/insight/{id}', [AdminInsightController::class, 'destroy'])->name('admin.insight.destroy');
 
     Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contacts.index');
