@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\AdminController;
 
 Route::get("/", [HomeController::class, "index"])->name('fe.home');
 Route::get("/contact", [ContactController::class, "index"])->name('fe.contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get("/insight", [InsightController::class, "index"])->name('fe.insight');
 Route::get("/work", [WorkController::class, "index"])->name('fe.work');
 Route::get('/work/filter', [WorkController::class, 'filterProjects'])->name('work.filter');

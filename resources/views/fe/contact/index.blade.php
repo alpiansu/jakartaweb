@@ -17,18 +17,37 @@
       </div>
       <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="150">
         <div class="col-lg-8">
-          <form action="#" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+          <form action="{{ route('contact.store') }}" class="row g-3 p-lg-5 p-4 bg-white theme-shadow" method="POST">
+            @if(session('success'))
+              <div class="alert alert-success mt-3">
+                  {{ session('success') }}
+              </div>
+            @elseif(session('error'))
+              <div class="alert alert-danger mt-3">
+                  {{ session('error') }}
+              </div>
+            @endif
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
+            @csrf
             <div class="form-group col-lg-6">
-              <input type="text" class="form-control" placeholder="Enter First Name" />
+              <input type="text" name="first_name" class="form-control" placeholder="Enter First Name" />
             </div>
             <div class="form-group col-lg-6">
-              <input type="text" class="form-control" placeholder="Enter Last Name" />
+              <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name" />
             </div>
             <div class="form-group col-lg-12">
-              <input type="email" class="form-control" placeholder="Enter Email Address" />
+              <input type="email" name="email" class="form-control" placeholder="Enter Email Address" />
             </div>
             <div class="form-group col-lg-12">
-              <input type="text" class="form-control" placeholder="Enter Subject" />
+              <input type="text" name="subject" class="form-control" placeholder="Enter Subject" />
             </div>
             <div class="form-group col-lg-12">
               <textarea
