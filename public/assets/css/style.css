@@ -108,6 +108,12 @@ img{
     color: white;
 }
 
+.logo-footer, .top-logo {
+    max-height: 50px;
+    /* Atur sesuai dengan tinggi SVG */
+    width: auto;
+    /* Menjaga rasio aspek */
+}
 /* HERO */
 /* #hero{
     background: linear-gradient(rgba(var(--c-brand-rgb),.5), rgba(var(--c-brand-rgb),.4)), url(../img/hero-1.jpg);

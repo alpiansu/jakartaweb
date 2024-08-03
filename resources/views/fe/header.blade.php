@@ -2,8 +2,7 @@
   <nav class="navbar navbar-expand-lg bg-white fixed-top">
     <div class="container">
       <a href="/" class="navbar-brand">
-        <!-- <img src="../../../public/assets/img/logo-dark.svg" alt="logo" /> -->
-        Logo
+        <img src="{{ asset('assets/img/'.$mainConfig->logo) }}" alt="logo" class="top-logo" />
       </a>
       <button
         class="navbar-toggler"
