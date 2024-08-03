@@ -115,4 +115,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/config/social-media', [AdminConfigController::class, 'storeSocialMedia'])->name('admin.config.storeSocialMedia');
     Route::put('/admin/config/social-media/{id}', [AdminConfigController::class, 'updateSocialMedia'])->name('admin.config.updateSocialMedia');
     Route::delete('/admin/config/{id}', [AdminConfigController::class, 'destroy'])->name('admin.config.destroy');
+    Route::put('/admin/config/contact', [AdminConfigController::class, 'updateContact'])->name('admin.config.updateContact');
 });

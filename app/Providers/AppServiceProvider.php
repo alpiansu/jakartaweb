@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\ViewComposers\SocialMediaComposer;
 use App\Http\ViewComposers\MainConfigComposer;
 use App\Http\ViewComposers\SubServiceComposer;
+use App\Http\ViewComposers\FooterContact;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer(
             'fe.*', // Nama view yang menggunakan composer ini
             SubServiceComposer::class
+        );
+        View::composer(
+            'fe.*', // Nama view yang menggunakan composer ini
+            FooterContact::class
         );
     }
 }

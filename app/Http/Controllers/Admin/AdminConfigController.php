@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MainConfig;
 use App\Models\SocialMedia;
+use App\Models\Contact;
 use Illuminate\Support\Facades\File;
 
 class AdminConfigController extends Controller
@@ -14,10 +15,36 @@ class AdminConfigController extends Controller
     {
         try {
             $config = MainConfig::first();
+            $contact = Contact::first();
             $socialMedias = SocialMedia::all();
-            return view('admin.config.index', compact('config', 'socialMedias'));
+            return view('admin.config.index', compact('config', 'socialMedias', 'contact'));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+    public function updateContact(Request $request)
+    {
+        try {
+            $request->validate([
+                'address' => 'required|string|max:255',
+                'phone' => 'required|string|max:20',
+                'url' => 'required|string|max:255',
+            ]);
+
+            $contact = Contact::first();
+            if (!$contact) {
+                $contact = new Contact();
+            }
+
+            $contact->address = $request->address;
+            $contact->phone = $request->phone;
+            $contact->url = $request->url;
+            $contact->save();
+
+            return redirect()->route('admin.config.index')->with('success', 'Contact information updated successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'An error occurred while updating the contact information: ' . $e->getMessage()]);
         }
     }
 

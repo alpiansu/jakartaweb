@@ -19,6 +19,15 @@
             {{ session('success') }}
         </div>
     @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="card shadow">
         <div class="card-header">
             <h3 class="card-title">Main Configuration</h3>
@@ -52,6 +61,31 @@
                     <textarea name="footer_text" class="form-control" rows="3">{{ $config ? $config->footer_text : '' }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Save Configuration</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow mt-4">
+        <div class="card-header">
+            <h3 class="card-title">Contact Information</h3>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('admin.config.updateContact') }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" class="form-control" value="{{ $contact->address ?? '' }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" class="form-control" value="{{ $contact->phone ?? '' }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="url">Website URL</label>
+                    <input type="text" name="url" class="form-control" value="{{ $contact->url ?? '' }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Contact Information</button>
             </form>
         </div>
     </div>

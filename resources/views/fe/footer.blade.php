@@ -3,7 +3,7 @@
   <div class="footer-top">
     <div class="container">
       <div class="row gy-5">
-        <div class="col-lg-4 col-sm-6"> <!-- Ubah kolom ke 4 kolom -->
+        <div class="col-lg-4 col-sm-6 mr-10"> <!-- Ubah kolom ke 4 kolom -->
           <a href="/">
             <img src="{{ asset('assets/img/'.$mainConfig->footer_logo) }}" alt="logo footer" class="logo-footer" />
           </a>
@@ -11,29 +11,32 @@
           <p>{{ $mainConfig->footer_text }}</p>
           <div class="social-icons">
             @foreach($socialMedia as $media)
-                <a href="{{ $media->link }}" target="_blank" rel="noopener noreferrer">
-                    <i class="{{ $media->icon }}"></i>
-                </a>
+            <a href="{{ $media->link }}" target="_blank" rel="noopener noreferrer">
+              <i class="{{ $media->icon }}"></i>
+            </a>
             @endforeach
           </div>
+        </div>
+        <div class="col-lg-1 col-sm-6"> <!-- Ubah kolom ke 4 kolom -->
         </div>
         <div class="col-lg-4 col-sm-6"> <!-- Ubah kolom ke 4 kolom -->
           <h5 class="mb-0 text-white">SERVICES</h5>
           <div class="line"></div>
           <ul>
-            <li><a href="#">UX Design</a></li>
-            <li><a href="#">HTML 5</a></li>
-            <li><a href="#">CSS 3</a></li>
-            <li><a href="#">JavaScript</a></li>
+            @foreach($mainSubService as $footerSubService)
+              <li><a href="{{ $footerSubService->menu_name }}">{{ $footerSubService->heading }}</a></li>
+            @endforeach
           </ul>
         </div>
-        <div class="col-lg-4 col-sm-6"> <!-- Ubah kolom ke 4 kolom -->
+        <div class="col-lg-2 col-sm-6"> <!-- Ubah kolom ke 4 kolom -->
           <h5 class="mb-0 text-white">CONTACT</h5>
           <div class="line"></div>
           <ul>
-            <li><a href="#">Bogor, Jawa Barat</a></li>
-            <li><a href="#">(+62) xxx xxx xxx</a></li>
-            <li><a href="#">www.jakartaweb.com</a></li>
+            @foreach($footerContact as $fContact)
+              <li><a href="#">{{ $fContact->address }}</a></li>
+              <li><a href="#">{{ $fContact->phone }}</a></li>
+              <li><a href="#">{{ $fContact->url }}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
