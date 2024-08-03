@@ -368,6 +368,11 @@ return [
             'icon' => 'fas fa-fw fa-cogs',
             'url' => 'admin/config',
         ],
+        [
+            'text' => 'Profile',
+            'url'  => 'admin/profile',
+            'icon' => 'fas fa-fw fa-user',
+        ],
     ],
 
     /*

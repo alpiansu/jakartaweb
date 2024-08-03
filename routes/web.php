@@ -39,8 +39,13 @@ use App\Http\Controllers\Admin\AdminWorkController;
 use App\Http\Controllers\Admin\AdminInsightController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminConfigController;
+use App\Http\Controllers\ProfileController;
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/admin/profile/password', [ProfileController::class, 'changePassword'])->name('profile.password');
+
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/admin/home/carousel', [HomeCarouselController::class, 'index'])->name('admin.home.carousel');
