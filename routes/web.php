@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\Admin\AdminService2Controller;
 use App\Http\Controllers\Admin\AdminWorkController;
 use App\Http\Controllers\Admin\AdminInsightController;
+use App\Http\Controllers\Admin\AdminContactController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -96,4 +97,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/insight', [AdminInsightController::class, 'store'])->name('admin.insight.store');
     Route::put('/admin/insight/{id}', [AdminInsightController::class, 'update'])->name('admin.insight.update');
     Route::delete('/admin/insight/{id}', [AdminInsightController::class, 'destroy'])->name('admin.insight.destroy');
+
+    Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contacts.index');
+    Route::delete('/admin/contact/{id}', [AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
+    Route::put('/admin/contact/{id}', [AdminContactController::class, 'update'])->name('admin.contacts.update');
 });
