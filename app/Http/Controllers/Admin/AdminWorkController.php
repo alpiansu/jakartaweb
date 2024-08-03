@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\PageContent;
 use Exception;
 
 class AdminWorkController extends Controller
@@ -15,7 +16,8 @@ class AdminWorkController extends Controller
             $projects = Project::all();
             $projectTypes = Project::select('project_type')->distinct()->get();
             $sectors = Project::select('sector')->distinct()->get();
-            return view('admin.work.index', compact('projects', 'projectTypes', 'sectors'));
+            $work_text = PageContent::where('page_id', '3')->first();
+            return view('admin.work.index', compact('projects', 'projectTypes', 'sectors', 'work_text'));
         } catch (Exception $e) {
             return back()->with('error', 'Something went wrong: ' . $e->getMessage());
         }
@@ -88,6 +90,23 @@ class AdminWorkController extends Controller
             return back()->with('success', 'Project updated successfully.');
         } catch (Exception $e) {
             return back()->with('error', 'Failed to update project: ' . $e->getMessage());
+        }
+    }
+
+    public function updateHeading(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        try {
+            $pageContent = PageContent::where('page_id', '3')->first();
+            $pageContent->update($request->only(['title', 'content']));
+
+            return redirect()->route('admin.projects.index')->with('success', 'Text heading updated successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Failed to update SubService: ' . $e->getMessage()]);
         }
     }
 

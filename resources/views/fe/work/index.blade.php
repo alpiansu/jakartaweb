@@ -29,10 +29,10 @@
         <div class="row">
             <div class="col-12 text-center">
                 <div class="section-title" data-aos="fade-down" data-aos-delay="150">
-                    <h1 class="display-4 fw-semibold">Our Work</h1>
+                    <h1 class="display-4 fw-semibold">{{ $work_text->title }}</h1>
                     <div class="line"></div>
                     <p>
-                        In our 20+ years, we have been fortunate enough to work alongside partners we admire to help create bespoke websites and generate extraordinary results. Experience some of our recent work.
+                        {{ $work_text->content }}
                     </p>
                 </div>
             </div>

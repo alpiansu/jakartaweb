@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FE;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\PageContent;
 
 class WorkController extends Controller
 {
@@ -13,7 +14,8 @@ class WorkController extends Controller
         $projects = Project::all();
         $projectTypes = Project::select('project_type')->distinct()->get();
         $sectors = Project::select('sector')->distinct()->get();
-        return view("fe.work.index", compact("projects", "projectTypes", "sectors"));
+        $work_text = PageContent::where('page_id', 3)->first();
+        return view("fe.work.index", compact("projects", "projectTypes", "sectors", "work_text"));
     }
 
     public function filterProjects(Request $request)

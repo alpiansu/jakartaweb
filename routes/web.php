@@ -91,6 +91,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/work', [AdminWorkController::class, 'store'])->name('admin.projects.store');
     Route::get('/admin/work/{id}/edit', [AdminWorkController::class, 'edit'])->name('admin.projects.edit');
     Route::put('/admin/work/{id}', [AdminWorkController::class, 'update'])->name('admin.projects.update');
+    Route::put('/admin/work', [AdminWorkController::class, 'updateHeading'])->name('admin.projects.updateHeading');
     Route::delete('/admin/work/{id}', [AdminWorkController::class, 'destroy'])->name('admin.projects.destroy');
 
     Route::get('/admin/insight', [AdminInsightController::class, 'index'])->name('admin.insight.index');

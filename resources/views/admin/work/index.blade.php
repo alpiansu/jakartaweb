@@ -14,6 +14,27 @@
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Heading Text</h6>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('admin.projects.updateHeading') }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                    <label for="heading">Heading</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $work_text->title }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="sub_heading">Sub Heading</label>
+                    <input type="text" class="form-control" id="content" name="content" value="{{ $work_text->content }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Add Project Button -->
     <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#addProjectModal">Add Project</button>
 
