@@ -64,7 +64,6 @@
                         </div>
                         <h5 class="mt-3">{{ $project->title }}</h5>
                         <p class="text-muted">{{ $project->description }}</p>
-                        <a href="{{ $project->link }}" class="btn btn-outline-primary">Open</a>
                     </div>
                 </div>
             @endforeach
@@ -99,7 +98,6 @@
                                     </div>
                                     <h5 class="mt-3">${project.title}</h5>
                                     <p class="text-muted">${project.description}</p>
-                                    <a href="${project.link}" class="btn btn-outline-primary">Open</a>
                                 </div>
                             </div>
                         `);
