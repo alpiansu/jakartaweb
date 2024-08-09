@@ -24,7 +24,7 @@
           <div class="line"></div>
           <ul>
             @foreach($mainSubService as $footerSubService)
-              <li><a href="{{ $footerSubService->menu_name }}">{{ $footerSubService->heading }}</a></li>
+              <li><a href="{{ $footerSubService->url_menu }}">{{ $footerSubService->heading }}</a></li>
             @endforeach
           </ul>
         </div>

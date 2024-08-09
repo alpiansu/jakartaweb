@@ -31,8 +31,9 @@
               Services
             </a>
             <ul class="dropdown-menu">
-              <li><a href="/service" class="dropdown-item">Service 1</a></li>
-              <li><a href="/service2" class="dropdown-item">Service 2</a></li>
+              @foreach($mainSubService as $headSubService)
+                <li><a href="/{{ $headSubService->url_menu }}" class="dropdown-item">{{ $headSubService->menu_name }}</a></li>
+              @endforeach
             </ul>
           </li>
           <li class="nav-item">
