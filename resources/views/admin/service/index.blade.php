@@ -37,6 +37,14 @@
             <form action="{{ route('admin.service.subservice.update') }}" method="POST">
                 @csrf
                 <div class="form-group">
+                    <label for="heading">Menu Name</label>
+                    <input type="text" class="form-control" id="menu_name" name="menu_name" value="{{ $subservice->menu_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="heading">URL</label>
+                    <input type="text" class="form-control" id="url_menu" name="url_menu" value="{{ $subservice->url_menu }}" required>
+                </div>
+                <div class="form-group">
                     <label for="heading">Heading</label>
                     <input type="text" class="form-control" id="heading" name="heading" value="{{ $subservice->heading }}" required>
                 </div>
