@@ -32,7 +32,7 @@
             </a>
             <ul class="dropdown-menu">
               @foreach($mainSubService as $headSubService)
-                <li><a href="/{{ $headSubService->url_menu }}" class="dropdown-item">{{ $headSubService->menu_name }}</a></li>
+                <li><a href="/service/{{ $headSubService->id }}" class="dropdown-item">{{ $headSubService->menu_name }}</a></li>
               @endforeach
             </ul>
           </li>

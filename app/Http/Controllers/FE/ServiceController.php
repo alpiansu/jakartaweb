@@ -42,9 +42,15 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        // Mencari SubService berdasarkan ID
+        $subservice = SubService::findOrFail($id);
+        $services = Service::where('id_sub_services', $id)->get();
+        $counters = Counter::where('id_sub_services', $id)->get();
+
+        // Mengembalikan view dengan data yang diambil
+        return view('fe.services.index', compact('subservice', 'services', 'counters'));
     }
 
     /**

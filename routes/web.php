@@ -24,8 +24,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get("/insight", [InsightController::class, "index"])->name('fe.insight');
 Route::get("/work", [WorkController::class, "index"])->name('fe.work');
 Route::get('/work/filter', [WorkController::class, 'filterProjects'])->name('work.filter');
-Route::get("/service", [ServiceController::class, "index"])->name('fe.service');
-Route::get("/service2", [Service2Controller::class, "index"])->name('fe.service2');
+Route::get("/service/{id}", [ServiceController::class, "show"])->name('fe.service.show');
 
 Auth::routes();
 
