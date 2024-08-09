@@ -9,10 +9,10 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-between">
+        <div class="row justify-content-center">
             @foreach($features as $index => $feature)
-                <div class="card ms-lg-3 mt-3" style="width: 23rem" data-aos="fade-down" data-aos-delay="{{ ($index + 1) * 100 }}">
-                    <div class="card-body bg-dark">
+                <div class="card ms-lg-3 mt-3" style="width: 100%; max-width: 23rem; flex: 1 1 21rem;" data-aos="fade-down" data-aos-delay="{{ ($index + 1) * 100 }}">
+                    <div class="card-body bg-dark mt-2 mb-2">
                         <h5 class="card-title text-white text-center">{{ $feature->title }}</h5>
                         <p class="card-text text-white">{{ $feature->description }}</p>
                         <a href="{{ $feature->link_url }}" class="btn btn-brand">{{ $feature->link_text }}</a>
