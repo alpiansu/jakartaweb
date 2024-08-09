@@ -22,13 +22,15 @@ class AdminServiceController extends Controller
     public function updateSubService(Request $request)
     {
         $request->validate([
+            'menu_name' => 'required|string|max:255',
+            'url_menu' => 'required|string|max:255',
             'heading' => 'required|string|max:255',
             'sub_heading' => 'required|string|max:255',
         ]);
 
         try {
             $subservice = SubService::where('id', 1)->first();
-            $subservice->update($request->only(['heading', 'sub_heading']));
+            $subservice->update($request->only(['menu_name', 'url_menu', 'heading', 'sub_heading']));
 
             return redirect()->route('admin.service.index')->with('success', 'SubService updated successfully.');
         } catch (\Exception $e) {
