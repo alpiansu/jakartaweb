@@ -18,11 +18,11 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="/" class="nav-link active">Home</a>
+            <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle {{ Request::is('service*') ? 'active' : '' }}"
               href="#"
               role="button"
               data-bs-toggle="dropdown"
@@ -36,13 +36,13 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="/work" class="nav-link">Our Work</a>
+            <a href="/work" class="nav-link {{ Request::is('work*') ? 'active' : '' }}">Our Work</a>
           </li>
           <li class="nav-item">
-            <a href="/insight" class="nav-link">Insight</a>
+            <a href="/insight" class="nav-link {{ Request::is('insight*') ? 'active' : '' }}">Insight</a>
           </li>
         </ul>
-        <a href="/contact" class="btn btn-brand ms-lg-3">Contact</a>
+        <a href="/contact" class="btn btn-brand ms-lg-3 {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
       </div>
     </div>
   </nav>
