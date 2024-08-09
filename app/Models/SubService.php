@@ -12,8 +12,8 @@ class SubService extends Model
 
     protected $fillable = [
         'menu_name',
+        'url_menu',
         'heading',
         'sub_heading',
-        'id_sub_services',
     ];
 }
