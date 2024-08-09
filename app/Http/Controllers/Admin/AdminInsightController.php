@@ -23,14 +23,12 @@ class AdminInsightController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'link' => 'required|string',
         ]);
 
         try {
             $blog = new Blog();
             $blog->title = $request->title;
             $blog->description = $request->description;
-            $blog->link = $request->link;
 
             if ($request->hasFile('image_path')) {
                 $imageName = time() . '.' . $request->image_path->extension();
@@ -51,14 +49,12 @@ class AdminInsightController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'link' => 'required|string',
         ]);
 
         try {
             $blog = Blog::findOrFail($id);
             $blog->title = $request->title;
             $blog->description = $request->description;
-            $blog->link = $request->link;
 
             if ($request->hasFile('image_path')) {
                 // Delete old image if exists

@@ -53,7 +53,6 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Link</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -63,7 +62,6 @@
                                 <td>{{ $blog->title }}</td>
                                 <td>{{ Str::limit($blog->description, 50) }}</td>
                                 <td><img src="{{ asset('assets/img/insights/' . $blog->image_path) }}" alt="{{ $blog->title }}" width="100"></td>
-                                <td><a href="{{ $blog->link }}" target="_blank">{{ $blog->link }}</a></td>
                                 <td>
                                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editInsightModal"
                                         data-id="{{ $blog->id }}"
@@ -113,10 +111,6 @@
                         <label for="image_path">Image</label>
                         <input type="file" class="form-control" id="image_path" name="image_path">
                     </div>
-                    <div class="form-group">
-                        <label for="link">Link</label>
-                        <input type="text" class="form-control" id="link" name="link" required>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -154,10 +148,6 @@
                         <label for="editImage">Image</label>
                         <input type="file" class="form-control" id="editImage" name="image_path">
                         <img id="editImagePreview" src="" alt="" width="100" class="mt-2">
-                    </div>
-                    <div class="form-group">
-                        <label for="editLink">Link</label>
-                        <input type="text" class="form-control" id="editLink" name="link" required>
                     </div>
                 </div>
                 <div class="modal-footer">

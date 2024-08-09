@@ -26,7 +26,6 @@
                         <p class="mb-0">
                             {{ Str::limit($blog->description, 100, '...') }}
                         </p>
-                        <a href="{{ $blog->link }}" class="mt-0">Read More</a>
                     </div>
                 </div>
             @endforeach
