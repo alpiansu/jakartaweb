@@ -9,7 +9,6 @@ use App\Http\Controllers\FE\ContactController;
 use App\Http\Controllers\FE\InsightController;
 use App\Http\Controllers\FE\WorkController;
 use App\Http\Controllers\FE\ServiceController;
-use App\Http\Controllers\FE\Service2Controller;
 
 use App\Http\Controllers\Admin\AdminController;
 
